@@ -1,9 +1,8 @@
-Feature: XYZ Banking website testing
+Feature: Login into XYZ bank
 
-Scenario: Validate customer login in xyz bank
+Scenario: Validate user login in Sauce Demo application
 
-Given user is on xyz bank login page
-Then user clicks on customer login button
-Then under your name dropdown user selects Harry Potter
-Then clicks on login button
-And user is on welcome page
+Given user is on sauce demo page
+Then user enters username and password
+Then clicks on Login button
+And validate app logo

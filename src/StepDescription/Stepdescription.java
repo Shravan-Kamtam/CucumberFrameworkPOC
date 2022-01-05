@@ -7,51 +7,43 @@ import com.pages.LoginPage;
 import Base.TestBase;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
 public class Stepdescription extends TestBase {
 	
-//	HomePage hp = new HomePage();
+	LoginPage lp;
 	
-	
-	@Before
-	public void initialization() {
-		init();
-	}
-	 
 	@After
-	public void tearDown() {
+	public void tearDown() throws InterruptedException {
+		Thread.sleep(2000);
 		driver.quit();
 	}
 
-	@Given("^user is on xyz bank login page$")
-	public void user_is_on_xyz_bank_login_page() {
-		System.out.println("Init method already called");
+	@Given("^user is on XYZ bank page$")
+	public void user_is_on_XYZ_bank_page() {
+		init();
 	}
 
-	@Then("^user clicks on customer login button$")
-	public void user_clicks_on_customer_login_button() {
-		LoginPage hp = new LoginPage();
-		hp.clickOnCutomerLoginButton();
+	@Then("^user clicks on customer Login$")
+	public void user_clicks_on_customer_Login() {
+		lp = new LoginPage();
+		lp.clickOnCustomerLogin();
 	}
 
-	@Then("^under your name dropdown user selects Harry Potter$")
-	public void under_your_name_dropdown_user_selects_Harry_Potter() {
-		LoginPage hp = new LoginPage();
-		hp.selectCustomer();
+	@Then("^user selects customer from dropdown$")
+	public void user_selects_customer_from_dropdown() {
+		lp.selectCustomer();
 	}
 
-	@Then("^clicks on login button$")
-	public void clicks_on_login_button() {
-		LoginPage hp = new LoginPage();
-		hp.clickOnLoginButton();
+	@Then("^clicks on login$")
+	public void clicks_on_login() {
+		lp.clickOnLoginButton();
 	}
 
-	@And("^user is on welcome page$")
-	public void user_is_on_welcome_page() {
-		System.out.println("This step is alread validated");
+	@Then("^validates customer details$")
+	public void validates_customer_details() {
+		System.out.println("Customer details validate");
 	}
-
+	
 }

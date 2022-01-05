@@ -1,8 +1,13 @@
 package com.util;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -24,7 +29,7 @@ public class CommonFunctions extends TestBase{
 		}		
 	}
 	
-	public void selectByVisiblTextfromDropdown(WebElement we, String value, WebDriver driver) {
+	public void selectByVisiblTextfromDropdown(WebElement we, String value) {
 		try {
 			we.isDisplayed();
 			Select sel = new Select(we);
@@ -34,6 +39,22 @@ public class CommonFunctions extends TestBase{
 		catch (ElementNotVisibleException e) {
 			Assert.assertFalse("Element is not seleced from slect dropdown "+ we , false);
 		}	
+	}
+	
+	public void enterData(WebElement we, String value) {
+		try {
+			we.isDisplayed();
+			we.sendKeys(value);
+		}
+		catch (ElementNotVisibleException e) {
+			Assert.assertFalse("Not able to enter details for field "+ we , false);
+		}	
+	}
+	
+	public void getScreenshot() {
+		File sht = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		
+			
 	}
 
 }
