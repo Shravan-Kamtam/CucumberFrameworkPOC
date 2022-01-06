@@ -17,7 +17,7 @@ public class TestBase {
 	public TestBase() {		
 		property = new Properties();
 		try {
-			FileInputStream fis = new FileInputStream("C:\\Users\\gurup\\eclipse-workspace\\BDDFramework\\main\\com\\config\\config.properties");
+			FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"\\main\\com\\config\\config.properties");
 			property.load(fis);
 		
 		} catch (IOException e) {
@@ -30,11 +30,11 @@ public class TestBase {
 		String browserName = property.getProperty("browser");
 		
 		if (browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "G:\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		else if (browserName.equalsIgnoreCase("edge")) {
-			System.setProperty("webdriver.edge.driver", "G:\\msedgedriver.exe");
+			System.setProperty("webdriver.edge.driver", System.getProperty("user.dir")+"\\drivers\\msedgedriver.exe");
 			driver = new EdgeDriver();
 		}
 		

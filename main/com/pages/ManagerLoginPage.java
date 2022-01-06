@@ -1,12 +1,14 @@
 package com.pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.util.CommonFunctions;
 
-public class ManagerLoginPage {
+import Base.TestBase;
+
+public class ManagerLoginPage extends TestBase{
 
 	@FindBy(xpath = "//button[text()='Home']")
 	WebElement Home;
@@ -34,18 +36,23 @@ public class ManagerLoginPage {
 	
 	CommonFunctions cf = new CommonFunctions();
 	
+	public ManagerLoginPage() {
+		PageFactory.initElements(driver, this);
+	}
+	
 	public void managerLoginButton() {
 			cf.javaScriptclick(managerLogin);
 			cf.javaScriptclick(addCustomerButton);
 	}
 	
 	public void enterCustomerDetails(String fname, String lname, String pcode) {
-		cf.enterData(firstNameTextbox, fname);
-		cf.enterData(lastNameTextbox, lname);
-		cf.enterData(postCode, pcode);
+		cf.javaScriptEnterData(firstNameTextbox, fname);
+		cf.javaScriptEnterData(lastNameTextbox, lname);
+		cf.javaScriptEnterData(postCode, pcode);
 	}
 	public void clickonAddCustomer() {
 		cf.javaScriptclick(addCustomerDetails);
+		cf.acceptAlert();
 	}
 	
 }
