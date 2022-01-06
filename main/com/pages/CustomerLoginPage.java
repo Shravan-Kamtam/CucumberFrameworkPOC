@@ -11,7 +11,7 @@ import com.util.CommonFunctions;
 
 import Base.TestBase;
 
-public class LoginPage extends TestBase{
+public class CustomerLoginPage extends TestBase{
 	
 	@FindBy(xpath = "//button[text()='Customer Login']")
 	WebElement customerLogin;
@@ -27,7 +27,7 @@ public class LoginPage extends TestBase{
 	
 	CommonFunctions cf = new CommonFunctions();
 	
-	public LoginPage() {
+	public CustomerLoginPage() {
 		PageFactory.initElements(driver, this);
 	}
 	
