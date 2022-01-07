@@ -5,9 +5,9 @@ import com.pages.ManagerLoginPage;
 import com.util.CommonFunctions;
 
 import Base.TestBase;
-import cucumber.api.java.After;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.After;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class LoginStepdescription extends TestBase {
 	
@@ -57,15 +57,9 @@ public class LoginStepdescription extends TestBase {
 		mp.managerLoginButton();
 	}
 
-	@Then("^user enter details and clicks on add customer$")
-	public void user_enter_details_and_clicks_on_add_customer() {
-		mp.enterCustomerDetails("fsss", "ddff", "4d111");
-		mp.clickonAddCustomer();		
-	}
-
-	@Then("^validate customer added successful pop up$")
-	public void validate_customer_added_successful_pop_up() {
-		
+	@Then("^clicks on open account and also customers$")
+	public void clicks_on_open_account_and_also_customers() {
+		mp.openAccountCustomersButton();
 	}
 	
 }

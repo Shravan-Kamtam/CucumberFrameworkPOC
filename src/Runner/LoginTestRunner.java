@@ -2,14 +2,14 @@ package Runner;
 
 import org.junit.runner.RunWith;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
 			features= "src\\Feature\\login.feature",
 			glue = {"StepDescription"},
-			dryRun = false
+			dryRun = false,
+			plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		)
 
 public class LoginTestRunner {

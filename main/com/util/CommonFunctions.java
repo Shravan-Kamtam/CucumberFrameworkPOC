@@ -59,6 +59,8 @@ public class CommonFunctions extends TestBase{
 	
 	public void javaScriptEnterData(WebElement we, String value) {
 		try {
+			we.click();
+			we.clear();
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].value='"+value+"'",we);
 		}

@@ -21,6 +21,9 @@ public class ManagerLoginPage extends TestBase{
 	
 	@FindBy(xpath = "//button[contains(text(),'Add Customer')]")
 	WebElement addCustomerButton;
+	
+	@FindBy(xpath = "//button[contains(text(),'Open Account')]")
+	WebElement openAccount;
 
 	@FindBy(xpath = "//input[@placeholder='First Name']")
 	WebElement firstNameTextbox;
@@ -43,6 +46,11 @@ public class ManagerLoginPage extends TestBase{
 	public void managerLoginButton() {
 			cf.javaScriptclick(managerLogin);
 			cf.javaScriptclick(addCustomerButton);
+	}
+	
+	public void openAccountCustomersButton() {
+		cf.javaScriptclick(openAccount);
+		cf.javaScriptclick(customersButton);
 	}
 	
 	public void enterCustomerDetails(String fname, String lname, String pcode) {

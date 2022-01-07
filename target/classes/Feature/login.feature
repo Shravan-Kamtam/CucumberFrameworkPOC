@@ -13,5 +13,4 @@ Scenario: Validate Manager login in XYZ Bank application
 
 Given user is on XYZ bank page
 Then user clicks on Manager Login and selects add customer
-Then user enter details and clicks on add customer
-And  validate customer added successful pop up
+Then clicks on open account and also customers
