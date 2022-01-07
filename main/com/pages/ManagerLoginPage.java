@@ -1,5 +1,6 @@
 package com.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -38,6 +39,7 @@ public class ManagerLoginPage extends TestBase{
 	WebElement addCustomerDetails;
 	
 	CommonFunctions cf = new CommonFunctions();
+	Logger log = Logger.getLogger(this.getClass().getName());
 	
 	public ManagerLoginPage() {
 		PageFactory.initElements(driver, this);
@@ -46,6 +48,7 @@ public class ManagerLoginPage extends TestBase{
 	public void managerLoginButton() {
 			cf.javaScriptclick(managerLogin);
 			cf.javaScriptclick(addCustomerButton);
+			log.info("**************************testing logs generated**************************");
 	}
 	
 	public void openAccountCustomersButton() {

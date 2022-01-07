@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.time.Clock;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
@@ -19,17 +19,20 @@ import Base.TestBase;
 
 public class CommonFunctions extends TestBase{
 	
+	Logger log = Logger.getLogger(this.getClass().getName());
+	
 	public void javaScriptclick(WebElement we) {
 		
 		try {
 			we.isDisplayed();
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("arguments[0].click();", we);
-			Assert.assertTrue("Clicked on element "+we+" successfully", true);
+			log.info("Clicked on element "+we+" successfully");
 			getScreenshot();
 		}
 		catch (ElementNotVisibleException e) {
-			System.out.print("Element is not displayed "+ we );
+			log.info("Click on element "+we+" failed");
+			Assert.fail();
 		}		
 	}
 	
@@ -42,7 +45,8 @@ public class CommonFunctions extends TestBase{
 			getScreenshot();
 		}
 		catch (ElementNotVisibleException e) {
-			Assert.assertFalse("Element is not seleced from slect dropdown "+ we , false);
+			log.info("Element is not seleced from slect dropdown "+ we);
+			Assert.fail();
 		}	
 	}
 	
@@ -53,7 +57,8 @@ public class CommonFunctions extends TestBase{
 			getScreenshot();
 		}
 		catch (ElementNotVisibleException e) {
-			Assert.assertFalse("Not able to enter details for field "+ we , false);
+			log.info("Not able to enter details for field "+ we);
+			Assert.fail();
 		}	
 	}
 	
