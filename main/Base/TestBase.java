@@ -25,7 +25,7 @@ public class TestBase {
 		}		
 	}
 	
-	public WebDriver init() {	
+	public void init() {	
 		
 		String browserName = property.getProperty("browser");
 		
@@ -41,7 +41,6 @@ public class TestBase {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(property.getProperty("implicitlyWaitTimeSec")), TimeUnit.SECONDS);
 		driver.get(property.getProperty("url"));
-		return driver;
 	}
 
 }

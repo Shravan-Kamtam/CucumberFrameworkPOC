@@ -56,14 +56,17 @@ public class ManagerLoginPage extends TestBase{
 		cf.javaScriptclick(customersButton);
 	}
 	
-	public void enterCustomerDetails(String fname, String lname, String pcode) {
+	public void enterCustomerDetails(String fname, String lname, String pcode) throws InterruptedException {
+		cf.javaScriptclick(firstNameTextbox);
 		cf.javaScriptEnterData(firstNameTextbox, fname);
+		cf.javaScriptclick(lastNameTextbox);
 		cf.javaScriptEnterData(lastNameTextbox, lname);
+		cf.javaScriptclick(postCode);
 		cf.javaScriptEnterData(postCode, pcode);
 	}
 	public void clickonAddCustomer() {
-		cf.javaScriptclick(addCustomerDetails);
-		cf.acceptAlert();
+		addCustomerDetails.submit();
+		cf.acceptAlert("Customer added successfully with customer id");
 	}
 	
 }

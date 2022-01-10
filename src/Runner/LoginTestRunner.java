@@ -6,7 +6,7 @@ import io.cucumber.junit.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-			features= "src\\Feature\\login.feature",
+			features= "src\\main\\resources\\Feature",
 			glue = {"StepDescription"},
 			dryRun = false,
 			plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}

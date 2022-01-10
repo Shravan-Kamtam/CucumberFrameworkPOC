@@ -6,9 +6,10 @@ import io.cucumber.junit.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-			features= "src\\Feature\\AddDeleteCustomer.feature",
+			features= "src\\main\\resources\\Feature\\AddDeleteCustomer.feature",
 			glue = {"StepDescription"},
-			dryRun = false
+			dryRun = false,
+			plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		)
 
 public class AddDeleteCustomerTestRunner {
